@@ -71,3 +71,24 @@ button {
 button:hover {
     background: #084298;
 }
+
+#carrinho-container {
+    padding: 20px;
+
+}
+
+#lista-carrinho li {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#finalizar {
+    margin-top: 20px;
+    width: 100%;
+}
