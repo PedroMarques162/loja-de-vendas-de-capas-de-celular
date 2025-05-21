@@ -29,25 +29,30 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function renderProdutos() {
     const listas = document.getElementById("product-list");
+    listas.innerHTML = ""; // Limpa antes de renderizar
     produtos.forEach((produto) => {
         const card = document.createElement("div");
-        card.className = "card";
+        card.className = "product";
         card.innerHTML = `
             <img src="${produto.imagem}" alt="${produto.nome}">
-            <h3>${produto.nome}</h3>
+            <h2>${produto.nome}</h2>
             <p>R$ ${produto.preco.toFixed(2)}</p>
-            <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
+            <button>Adicionar ao Carrinho</button>
         `;
+        card.querySelector("button").addEventListener("click", () => adicionarAoCarrinho(produto.id));
         listas.appendChild(card);
     });
 }
 
 function adicionarAoCarrinho(id) {
-    const item = produtos.find( p => p.id === id);
+    const item = produtos.find(p => p.id === id);
     carrinho.push(item);
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
     atualizarContador();
-    alert("Produto adicionado ao carrinho!");
+    // Feedback visual simples
+    const cart = document.getElementById("cart");
+    cart.classList.add("highlight");
+    setTimeout(() => cart.classList.remove("highlight"), 500);
 }
 
 function atualizarContador() {
