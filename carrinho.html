@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Carrinho</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/reset.css">
 </head>
 <body>
-    
+    <header>
+        <h1>🛍️ Carrinho de Compras</h1>
+       <a href="index.html" id="cart">← Voltar à loja</a>
+    </header>
+
+    <main id="carrinho-container">
+        <ul id="lista-carrinho"></ul>
+        <p id="total"></p>
+        <button id="finalizar">Finalizar Compra</button>
+    </main>
+
+
+    <script defer src="./src/scripts/carrinho.js"></script>
 </body>
 </html>
